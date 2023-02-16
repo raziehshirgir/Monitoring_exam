@@ -10,7 +10,7 @@ library(ggplot2)
 library(patchwork)
 
 # Set the working directory directory
-setwd("C:/Users/amir/OneDrive - Alma Mater Studiorum Università di Bologna (1)/Rosa's dataset/tif_files/four_cases") 
+setwd("C:/("/Users/alireza/Desktop/lab/")") 
 
 # Let's read the first dataset 
 # list all the files with pattern "gls"
