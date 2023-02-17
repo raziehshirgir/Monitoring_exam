@@ -22,12 +22,44 @@ import <- lapply(rlist,raster)
 import
 
 #stack them and plot them
-TGr <- stack(import)
-names(TGr) <- c("March 2017","March 2018", "March 2019", "March 2020", "March 2021")
 
-plot(TGr)
-# Let's change their names
+fire_stack <- stack(import)
+names(fire_stack) <- c("March_2015",
+                "March_2016",
+                "March_2017",
+                "March_2018", 
+                "March_2019", 
+                "March_2020", 
+                "March_2021",
+                "March_2022")
 
-plot(TGr, names.attr=c("March 2017","March 2018", "March 2019", "March 2020", "March 2021"))
+plot(fire_stack) 
 
-plotRGB(TGr,  r=1, g=2, b=5, stretch = 'lin')
+# Let's plot 
+plotRGB(fire_stack,  r=1, g=2, b=6, stretch = 'lin')
+plotRGB(fire_stack,  r=1, g=2, b=8, stretch = 'lin')
+plotRGB(fire_stack,  r=1, g=2, b=7, stretch = 'lin')
+
+
+# 
+pairs( fire_stack ) 
+albedoPCA2019 <- rasterPCA(fire_stack)
+summary(albedoPCA2019$model)# PC1 d e s c r i b e s 94%
+plot( albedoPCA2019$map )
+
+
+
+
+
+
+
+
+
+
+# Let's crop Eroupe - do this later
+#ext<- c(-180, 180, -90, 90)
+#extension <- crop(fire_stack, ext) 
+
+#plot(extension)
+
+
